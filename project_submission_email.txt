@@ -1,0 +1,33 @@
+Subject: Project Update: AI Assistant - Now with Dynamic Models & Universal MCP Support
+
+Hi,
+
+I have successfully updated the AI Assistant client with the requested advanced features. The application now supports dynamic model switching and a universal MCP architecture.
+
+### 🚀 New Features Implemented
+
+1.  **Dynamic Model Selection (UI)**
+    *   Added a "Select Model" dropdown in the sidebar.
+    *   Users can instantly switch between installed models (e.g., `qwen:0.5b`, `mistral`, `tinyllama`) without restarting the server.
+    *   The list is dynamically fetched from the backend, showing only available models.
+
+2.  **Universal MCP Server Support**
+    *   Refactored the backend to use a modular **MCP Adapter Layer**.
+    *   **Ollama Native**: Integrated widely used local AI.
+    *   **Generic Support**: Added an interface to easily plug in *any* MCP-compliant server (e.g., Cloud APIs, internal tools) by simply changing `config.json`.
+    *   **Hot-Reloading**: Configuration changes (like switching server providers) apply immediately without restarting.
+
+### 🛠️ Technical Stack Updates
+*   **Frontend**: React + Vite (Updated `App.jsx` for state management, `index.css` for styling).
+*   **Backend**: Python FastAPI (Implemented `OllamaAdapter` and `GenericMCPAdapter`).
+*   **Architecture**: Decoupled the UI from the specific AI provider using the Adapter pattern.
+
+### 📦 How to Test
+1.  **Run the App**: Double-click `start_app.bat`.
+2.  **Switch Models**: Pick a model from the sidebar dropdown and chat.
+3.  **Test Adapters**: Change `"type": "generic"` in `config.json` to verify the modular architecture.
+
+The complete source code is pushed to the repository.
+
+Best regards,
+[Your Name]

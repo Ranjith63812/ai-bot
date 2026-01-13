@@ -1,4 +1,7 @@
 {
-  "provider": "local",
-  "model": "qwen:0.5b"
+  "mcp_server": {
+    "type": "ollama",
+    "endpoint": "http://127.0.0.1:11434"
+  },
+  "default_model": "qwen:0.5b"
 }

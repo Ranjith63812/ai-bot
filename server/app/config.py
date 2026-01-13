@@ -19,15 +19,25 @@ class Config:
                 self._data = json.load(f)
         except FileNotFoundError:
             # Fallback defaults
-            self._data = {"provider": "local", "model": "mistral"}
+            self._data = {
+                "mcp_server": {"type": "ollama", "endpoint": "http://127.0.0.1:11434"},
+                "default_model": "qwen:0.5b"
+            }
             print(f"Warning: Config file not found at {CONFIG_PATH}, using defaults.")
 
     @property
-    def provider(self):
-        return self._data.get("provider", "local")
+    def server_type(self):
+        self._load_config()
+        return self._data.get("mcp_server", {}).get("type", "ollama")
 
     @property
-    def model(self):
-        return self._data.get("model", "mistral")
+    def server_endpoint(self):
+        self._load_config()
+        return self._data.get("mcp_server", {}).get("endpoint", "http://127.0.0.1:11434")
+
+    @property
+    def default_model(self):
+        self._load_config()
+        return self._data.get("default_model", "qwen:0.5b")
 
 config = Config()
