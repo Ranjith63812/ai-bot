@@ -1,4 +1,5 @@
 @echo off
+:: AI Assistant Startup Script v1.1
 echo Starting AI Assistant...
 
 :: Auto-Run Setup if Config Missing
