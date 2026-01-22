@@ -49,8 +49,15 @@ goto ollama_check_done
 echo Ollama not found. Attempting to auto-install via Winget...
 winget install Ollama.Ollama
 if errorlevel 1 goto ollama_error
-echo Ollama installed!
-echo NOTE: You might need to restart this script if Ollama command isn't found yet.
+echo.
+echo ========================================================
+echo  Ollama installed successfully!
+echo.
+echo  IMPORTANT: Windows needs to refresh to see the new tool.
+echo  Please CLOSE this window and run 'setup.bat' ONE MORE TIME.
+echo ========================================================
+pause
+exit /b
 
 :ollama_check_done
 echo.
